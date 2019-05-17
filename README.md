@@ -4,10 +4,9 @@ Developed with node@12
 
 ## Usage
 
-```
-> lsg-copy
-> # check your clipboard :)
-```
+`lsg-copy` or `npx lsg-copy`
+
+Check your clipboard :smiley:
 
 ## Tests
 
