@@ -13,7 +13,8 @@
     "lsg-copy": "cli.js"
   },
   "files": [
-    "cli.js"
+    "cli.js",
+    "lib"
   ],
   "license": "MIT",
   "scripts": {
