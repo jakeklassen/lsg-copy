@@ -4,7 +4,7 @@ Developed with node@12
 
 ## Demo
 
-[![asciicast](https://asciinema.org/a/eDkrkPcQ8hMM6YWSk93IdbIMt.svg)](https://asciinema.org/a/eDkrkPcQ8hMM6YWSk93IdbIMt)
+<script id="asciicast-eDkrkPcQ8hMM6YWSk93IdbIMt" src="https://asciinema.org/a/eDkrkPcQ8hMM6YWSk93IdbIMt.js" async></script>
 
 ## Tests
 
