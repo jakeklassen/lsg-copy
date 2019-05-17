@@ -2,6 +2,8 @@
 
 Developed with node@12
 
+`lsg-copy` will copy your globally installed packages with version pinning.
+
 ## Usage
 
 `lsg-copy` or `npx lsg-copy`
