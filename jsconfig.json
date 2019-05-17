@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "resolveJsonModule": true,
+    "rootDir": "."
+  },
+  "exclude": ["node_modules"],
+  "include": ["*.js"]
+}
