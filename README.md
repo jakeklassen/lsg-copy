@@ -2,9 +2,12 @@
 
 Developed with node@12
 
-## Demo
+## Usage
 
-<script id="asciicast-eDkrkPcQ8hMM6YWSk93IdbIMt" src="https://asciinema.org/a/eDkrkPcQ8hMM6YWSk93IdbIMt.js" async></script>
+```
+> lsg-copy
+> # check your clipboard :)
+```
 
 ## Tests
 
