@@ -15,10 +15,15 @@ cli
   .option('--mgr <mgr>', 'Choose your package manager (npm | yarn)', {
     default: 'npm',
   })
-  .option('--json', 'JSON output', { default: false })
-  .action(async (/** @type {{ mgr: string }} */ options) => {
+  .option('--pipe', 'Write contents to stdout instead of clipboard', {
+    default: false,
+  })
+  .action(async (
+    /** @type {{ mgr: string, json: boolean, pipe: boolean }} */ options,
+  ) => {
     try {
       const mgr = options.mgr.toLowerCase();
+      const { pipe } = options;
 
       if (mgr !== 'npm') {
         console.info(messages.NO_YARN_SUPPORT);
@@ -36,10 +41,6 @@ cli
         .then(({ stdout }) => JSON.parse(stdout).dependencies || {})
         .then(dependencies => Object.getOwnPropertyNames(dependencies));
 
-      if (linked.length > 0) {
-        console.log(`Ignoring ${linked.length} linked package(s)`);
-      }
-
       const packages = await execa('npm', ['ls', '-g', '--json', '--depth=0'])
         .then(({ stdout }) => JSON.parse(stdout).dependencies || {})
         .then(dependencies =>
@@ -49,13 +50,21 @@ cli
             .join(' '),
         );
 
-      await clipboardy.write(packages);
+      if (pipe) {
+        console.log(packages);
+      } else {
+        if (linked.length > 0) {
+          console.log(`Ignoring ${linked.length} linked package(s)`);
+        }
 
-      console.log(
-        `${
-          packages.split(' ').length
-        } package(s) successfully copied to clipboard`,
-      );
+        await clipboardy.write(packages);
+
+        console.log(
+          `${
+            packages.split(' ').length
+          } package(s) successfully copied to clipboard`,
+        );
+      }
     } catch (error) {
       console.error(error);
 

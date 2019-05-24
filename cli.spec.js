@@ -28,7 +28,7 @@ describe('lsg-copy', () => {
     const { failed, stdout } = await execa(BIN, ['--mgr', 'yarn']);
 
     expect(failed).toBe(false);
-    expect(stdout).toContain(messages.NO_YARN_SUPPORT);
+    expect(stdout).toMatch(messages.NO_YARN_SUPPORT);
   });
 
   it('should copy packages to clipboard', async () => {
@@ -36,17 +36,24 @@ describe('lsg-copy', () => {
 
     const clipboard = await clipboardy.read();
 
-    expect(clipboard).toContain('noop3@1000.0.0');
+    expect(clipboard).toMatch(/noop3@1000\.0\.0/);
   });
 
   it('should not copy linked packages to clipboard', async () => {
     // link self
-    await execa('npm', ['link']);
+    await execa('npm', ['--no-package-lock', 'link']);
     await execa(BIN);
     await execa('npm', ['unlink']);
 
     const clipboard = await clipboardy.read();
 
     expect(clipboard).not.toMatch(/lsg-copy/gi);
+  });
+
+  it('should support --pipe', async () => {
+    const { stdout } = await execa(BIN, ['--pipe']);
+
+    expect(stdout).toMatch(/noop3@1000\.0\.0/);
+    expect(await clipboardy.read()).toBe('');
   });
 });

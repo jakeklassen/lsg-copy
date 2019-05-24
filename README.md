@@ -1,12 +1,29 @@
 # lsg-copy
 
-Developed with node@12
-
 `lsg-copy` will copy your globally installed packages with version pinning.
+
+Developed with node@12
 
 ## Usage
 
-`lsg-copy` or `npx lsg-copy`
+```
+lsg-copy v0.3.0
+
+Usage:
+  $ lsg-copy
+
+Commands:
+    Copy global packages to clipboard
+
+For more info, run any command with the `--help` flag:
+  $ lsg-copy --help
+
+Options:
+  --mgr <mgr>    Choose your package manager (npm | yarn) (default: npm)
+  --pipe         Write contents to stdout instead of clipboard (default: false)
+  -v, --version  Display version number
+  -h, --help     Display this message
+```
 
 Check your clipboard :smiley:
 
