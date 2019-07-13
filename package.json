@@ -24,7 +24,7 @@
   "dependencies": {
     "cac": "^6.5.2",
     "clipboardy": "^2.1.0",
-    "execa": "^1.0.0"
+    "execa": "^2.0.3"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
