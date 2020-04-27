@@ -9,5 +9,6 @@ addons:
   apt:
     packages:
       - xclip
+      - xvfb
 script:
   - xvfb-run npm test
