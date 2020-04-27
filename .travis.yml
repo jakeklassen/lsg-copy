@@ -10,4 +10,4 @@ addons:
     packages:
       - xclip
 script:
-  - npm test
+  - xvfb-run npm test
