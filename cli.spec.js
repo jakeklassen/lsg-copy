@@ -16,10 +16,11 @@ describe('lsg-copy', () => {
   afterAll(async () => {
     await execa('npm', ['uninstall', '-g', 'noop3']);
     await execa('npm', ['unlink']);
+    await clipboardy.write('');
   });
 
   beforeEach(async () => {
-    await clipboardy.writeSync('');
+    await clipboardy.write('');
 
     expect(await clipboardy.read()).toBe('');
   });

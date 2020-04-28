@@ -2,7 +2,7 @@
 
 `lsg-copy` will copy your globally installed packages with version pinning.
 
-Developed with node@12
+Developed with `node@14`
 
 ## Usage
 
@@ -28,6 +28,10 @@ Options:
 Check your clipboard :smiley:
 
 ## Tests
+
+`npm test`
+
+Currently does _not_ support Yarn, e.g. `yarn test` will not work.
 
 **Requirements:**
 
